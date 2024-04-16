@@ -6,13 +6,13 @@ class TestCheckout():
         assert checkout_solution.checkout(32) == -1
 
     def test_checkout_fail2(self):
-        assert checkout_solution.checkout("") == -1
-
-    def test_checkout_fail3(self):
         assert checkout_solution.checkout("ABACADX") == -1
 
     def test_checkout(self):
-        assert checkout_solution.checkout("ABACAD") == 195
+        assert checkout_solution.checkout("") == 0
 
     def test_checkout2(self):
+        assert checkout_solution.checkout("ABACAD") == 195
+
+    def test_checkout3(self):
         assert checkout_solution.checkout("BBAADDABCBBAAC") == 420

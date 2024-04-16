@@ -41,7 +41,7 @@ supermarket_stock = {
 # skus = unicode string
 def checkout(skus):
 
-    if not (isinstance(skus, str) and len(skus) > 0):
+    if not (isinstance(skus, str) and len(skus) >= 0):
         return -1
     
     total_price = 0
