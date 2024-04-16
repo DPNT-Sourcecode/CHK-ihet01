@@ -23,9 +23,13 @@ class StoreItem:
 
     class Offer:
         def __init__(self, details):
-            if not (isinstance(details, list) and len(details) == 2 and isinstance(details[0], int) and isinstance(details[1], int)):
-                raise TypeError("Offer class accepts a list of two integers ([int, int]) where the first element represents \
-                                the quantity of the item and the second one the total offer price like [3, 150].")
+            if not isinstance(details, list):
+
+                if not (len(details) == 2 and isinstance(details[0], int) and isinstance(details[1], int)):
+                    raise TypeError("Offer class accepts a list of two integers ([int, int]) where the first element represents \
+                                    the quantity of the item and the second one the total offer price like [3, 150].")
+                else:
+
 
             self.quantity = details[0]
             self.price = details[1]
@@ -40,7 +44,7 @@ supermarket_stock = {
     'B': StoreItem('B', 30, [[2, 45]]),
     'C': StoreItem('C', 20),
     'D': StoreItem('D', 15),
-    'E': StoreItem('E', 40)      # No need to add this offer as it does not affect the total price.
+    'E': StoreItem('E', 40, [[2, 1, 'B']]),
 }
 
 # for item in supermarket_stock.values():
