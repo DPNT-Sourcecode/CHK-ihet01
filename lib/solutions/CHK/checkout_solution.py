@@ -20,10 +20,10 @@ class StoreItem:
                                 the quantity of the item and the second one the total offer price like [3, 150].")
 
             self.quantity = details[0]
-            self.offer_price = details[1]
+            self.price = details[1]
 
         def __str__(self):
-            return f"{self.quantity} for {self.offer_price}"
+            return f"{self.quantity} for {self.price}"
 
 supermarket_stock = {
     'A': StoreItem('A', 50, [3, 130]),
@@ -49,6 +49,16 @@ def checkout(skus):
         if not sku in supermarket_stock:
             return -1
         
+        if supermarket_stock[sku].offer:
+            no_offer_claimed = quantity // supermarket_stock[sku].offer.quantity
+            rem_quantity = quantity % supermarket_stock[sku].offer.quantity
+            total_item_price = (no_offer_claimed * supermarket_stock[sku].offer.price) + (rem_quantity * supermarket_stock[sku].price)
+        else:
+            total_item_price = quantity * supermarket_stock[sku].price
+
+        total_price += total_item_price
+
+    return total_price
 
 
 
