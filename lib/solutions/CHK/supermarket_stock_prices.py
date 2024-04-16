@@ -32,15 +32,3 @@ class StoreItem:
             return f"{self.quantity} for {self.price}"
 
 
-
-supermarket_stock = {
-    'A': StoreItem('A', 50, [[3, 130], [5, 200]]),
-    'B': StoreItem('B', 30, [[2, 45]]),
-    'C': StoreItem('C', 20),
-    'D': StoreItem('D', 15),
-    'E': StoreItem('E', 40)      # No need to add this offer as it does not affect the total price.
-}
-
-
-# for item in supermarket_stock.values():
-#     print(item)
