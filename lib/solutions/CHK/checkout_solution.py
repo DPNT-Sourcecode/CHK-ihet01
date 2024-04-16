@@ -40,7 +40,3 @@ def checkout(skus):
         total_price += total_item_price
 
     return total_price
-
-
-
-

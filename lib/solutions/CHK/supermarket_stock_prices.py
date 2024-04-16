@@ -11,6 +11,8 @@ class StoreItem:
             self.offers = []
             for offer in offers:
                 self.offers.append(self.Offer(offer))
+            
+            self.offers = sorted(self.offers, key=lambda x: x.quantity, reverse=True)
 
     def __str__(self):
         string = f"Item: {self.name} | Price: {self.price}"
@@ -30,5 +32,6 @@ class StoreItem:
 
         def __str__(self):
             return f"{self.quantity} for {self.price}"
+
 
 
