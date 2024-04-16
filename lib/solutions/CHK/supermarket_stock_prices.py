@@ -10,7 +10,7 @@ class StoreItem:
         if offers:
             self.offers = []
             for offer in offers:
-            self.offers = self.Offer(offer)
+                self.offers.append(self.Offer(offer))
 
     def __str__(self):
         string = f"Item: {self.name} | Price: {self.price}"
@@ -40,3 +40,7 @@ supermarket_stock = {
     'D': StoreItem('D', 15),
     'E': StoreItem('E', 40)      # No need to add this offer as it does not affect the total price.
 }
+
+
+for item in supermarket_stock.values:
+    print(item)
