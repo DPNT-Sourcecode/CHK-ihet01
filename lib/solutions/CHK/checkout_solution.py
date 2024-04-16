@@ -1,5 +1,5 @@
-from collections import Counter
-from . import supermarket_stock_prices
+# from collections import Counter
+# from . import supermarket_stock_prices
 # from supermarket_stock_prices import supermarket_stock
 
 # noinspection PyUnusedLocal
