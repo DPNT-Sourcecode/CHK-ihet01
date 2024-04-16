@@ -1,4 +1,4 @@
-import dict
+from collections import Counter
 
 
 class StoreItem:
@@ -9,6 +9,7 @@ class StoreItem:
         
         self.name = name
         self.price = price
+        self.offer = None
         if offer:
             self.offer = self.Offer(offer)
 
@@ -27,6 +28,7 @@ class StoreItem:
 
         def __str__(self):
             return f"{self.quantity} for {self.price}"
+
 
 supermarket_stock = {
     'A': StoreItem('A', 50, [3, 130]),
@@ -47,8 +49,8 @@ def checkout(skus):
     # counts the instances of each element and stores the counts in a dictionary
     skus_counter = Counter(skus)
 
-    for sku, quantity in skus_counter.items:
-        print(f"{quantity} x {sku}")
+    for sku, quantity in skus_counter.items():
+        # print(f"{quantity} x {sku}")
         if not sku in supermarket_stock:
             return -1
         
