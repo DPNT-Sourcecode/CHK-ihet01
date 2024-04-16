@@ -10,10 +10,13 @@ class StoreItem:
     
 
     class Offer:
-        def __init__(self, number, total_price):
+        def __init__(self, details):
+            if not (isinstance(details, list) and len(details) == 2 and isinstance(details[0], int) and isinstance(details[1], int)):
+                raise TypeError("Offer class accepts a list of two integers ([int, int]) where the first element represents \
+                                the quantity of the item and the second one the total offer price like [3, 150].")
 
-            self.number = number
-            self.total_price = total_price
+            self.quantity = details[0]
+            self.total_price = details[1]
 
 
 our_supermarket = [
@@ -27,4 +30,5 @@ our_supermarket = [
 # skus = unicode string
 def checkout(skus):
     
+
 
