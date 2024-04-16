@@ -1,6 +1,6 @@
 class StoreItem:
     def __init__(self, name, price, offers=None):
-        if not (isinstance(name, str) and len(name) == 1 and isinstance(price, int)):
+        if not (isinstance(name, str) and len(name) == 1 and isinstance(price, int) and (isinstance(offers, list) or offers is None)):
                 raise TypeError("StoreItem class accepts a string of one letter for item name, an integer for item price and \
                                  optional offers list of type list of list with 2 integers [[int, int]].")
         
@@ -32,6 +32,7 @@ class StoreItem:
 
         def __str__(self):
             return f"{self.quantity} for {self.price}"
+
 
 
 
