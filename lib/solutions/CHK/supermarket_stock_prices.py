@@ -23,13 +23,12 @@ class StoreItem:
 
     class Offer:
         def __init__(self, details):
-            if not isinstance(details, list):
-
-                if not (len(details) == 2 and isinstance(details[0], int) and isinstance(details[1], int)):
-                    raise TypeError("Offer class accepts a list of two integers ([int, int]) where the first element represents \
-                                    the quantity of the item and the second one the total offer price like [3, 150].")
-                else:
-
+            length_cond = (len(details) == 2) or (len(details) == 3)
+            if not (isinstance(details, list) and len(details) == 2 and isinstance(details[0], int) and isinstance(details[1], int)):
+                raise TypeError("Offer class accepts EITHER: \n  1. a list of two integers ([int, int]) where the first element represents \
+                                the quantity of the item and the second one the total offer price like [3, 150] \
+                                \nOR \n  2. a list of two integers and one string ([int, int, str]) where the first element represents \
+                                the quantity of the item, the second one is the quantity of the free item and the third one is the free item like [2, 1, 'B'].")
 
             self.quantity = details[0]
             self.price = details[1]
@@ -49,3 +48,4 @@ supermarket_stock = {
 
 # for item in supermarket_stock.values():
 #     print(item)
+
