@@ -1,4 +1,4 @@
-# from collections import Counter
+from collections import Counter
 # from . import supermarket_stock_prices
 # from supermarket_stock_prices import supermarket_stock
 
@@ -29,3 +29,4 @@ def checkout(skus):
         total_price += total_item_price
 
     return total_price
+
