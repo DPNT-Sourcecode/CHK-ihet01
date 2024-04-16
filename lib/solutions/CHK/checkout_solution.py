@@ -1,8 +1,4 @@
-from collections import Counter
 from . import *
-# from . import supermarket_stock_prices
-# from supermarket_stock_prices import supermarket_stock
-
 
 supermarket_stock = {
     'A': StoreItem('A', 50, [[3, 130], [5, 200]]),
@@ -43,5 +39,6 @@ def checkout(skus):
         total_price += total_item_price
 
     return total_price
+
 
 
