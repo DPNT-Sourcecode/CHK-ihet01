@@ -15,7 +15,7 @@ class StoreItem:
     def __str__(self):
         string = f"Item: {self.name} | Price: {self.price}"
         if self.offers:
-            string += f" | Offers: {[offer for offer in self.offers]}"
+            string += f" | Offers: {[str(offer) for offer in self.offers]}"
 
         return string
 
@@ -42,5 +42,5 @@ supermarket_stock = {
 }
 
 
-for item in supermarket_stock.values:
-    print(item)
+# for item in supermarket_stock.values():
+#     print(item)
