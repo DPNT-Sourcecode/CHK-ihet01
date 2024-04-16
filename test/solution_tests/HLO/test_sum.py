@@ -1,4 +1,4 @@
-from solutions.HLO import sum_solution
+from solutions.HLO import hello_solution
 
 
 class TestHello():
