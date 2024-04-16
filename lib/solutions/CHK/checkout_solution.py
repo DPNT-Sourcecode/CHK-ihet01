@@ -1,5 +1,9 @@
 class StoreItem:
     def __init__(self, name, price, offer=None):
+        if not (isinstance(name, str) and len(name) == 1 and isinstance(price, int)):
+                raise TypeError("StoreItem class accepts a string of one letter for item name, an integer for item price and an \
+                                 optional offer of type list [int, int].")
+        
         self.name = name
         self.price = price
         if offer:
@@ -32,6 +36,3 @@ our_supermarket = [
 # skus = unicode string
 def checkout(skus):
     
-
-
-
