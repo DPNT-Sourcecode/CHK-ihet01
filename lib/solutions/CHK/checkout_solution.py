@@ -1,3 +1,6 @@
+import dict
+
+
 class StoreItem:
     def __init__(self, name, price, offer=None):
         if not (isinstance(name, str) and len(name) == 1 and isinstance(price, int)):
