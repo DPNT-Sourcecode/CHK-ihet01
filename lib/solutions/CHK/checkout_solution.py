@@ -29,6 +29,7 @@ def checkout(skus):
         if not sku in supermarket_stock:
             return -1
         
+        rem_quantity = quantity
         for offer in supermarket_stock[sku].offers:
             if offer:
                 no_offer_claimed = quantity // offer.quantity
