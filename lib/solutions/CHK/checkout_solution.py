@@ -20,10 +20,10 @@ class StoreItem:
                                 the quantity of the item and the second one the total offer price like [3, 150].")
 
             self.quantity = details[0]
-            self.total_price = details[1]
+            self.offer_price = details[1]
 
         def __str__(self):
-            return f"{self.quantity} for {self.total_price}"
+            return f"{self.quantity} for {self.offer_price}"
 
 our_supermarket = [
     StoreItem('A', 50, [3, 130]),
@@ -36,3 +36,6 @@ our_supermarket = [
 # skus = unicode string
 def checkout(skus):
     
+    total_price
+    for sku in skus:
+
