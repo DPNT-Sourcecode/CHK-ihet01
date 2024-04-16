@@ -1,18 +1,23 @@
 class StoreItem:
-    def __init__(self, name, price, offer=None):
+    def __init__(self, name, price, offers=None):
         if not (isinstance(name, str) and len(name) == 1 and isinstance(price, int)):
-                raise TypeError("StoreItem class accepts a string of one letter for item name, an integer for item price and an \
-                                 optional offer of type list [int, int].")
+                raise TypeError("StoreItem class accepts a string of one letter for item name, an integer for item price and \
+                                 optional offers list of type list of list with 2 integers [[int, int]].")
         
         self.name = name
         self.price = price
-        self.offer = None
-        if offer:
-            self.offer = self.Offer(offer)
+        self.offers = None
+        if offers:
+            self.offers = []
+            for offer in offers:
+            self.offers = self.Offer(offer)
 
     def __str__(self):
-        return f"Item: {self.name} | Price: {self.price} | Offer: {self.offer}"
-    
+        string = f"Item: {self.name} | Price: {self.price}"
+        if self.offers:
+            string += f" | Offers: {[offer for offer in self.offers]}"
+
+        return string
 
     class Offer:
         def __init__(self, details):
@@ -30,7 +35,7 @@ class StoreItem:
 
 supermarket_stock = {
     'A': StoreItem('A', 50, [[3, 130], [5, 200]]),
-    'B': StoreItem('B', 30, [2, 45]),
+    'B': StoreItem('B', 30, [[2, 45]]),
     'C': StoreItem('C', 20),
     'D': StoreItem('D', 15),
     'E': StoreItem('E', 40)      # No need to add this offer as it does not affect the total price.
