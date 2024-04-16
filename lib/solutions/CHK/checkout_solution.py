@@ -30,6 +30,7 @@ def checkout(skus):
             return -1
         
         rem_quantity = quantity
+        # Starting from the offer with the higher quantity as it is already sorted by descending
         for offer in supermarket_stock[sku].offers:
             if offer:
                 no_offer_claimed = quantity // offer.quantity
@@ -41,3 +42,4 @@ def checkout(skus):
         total_price += total_item_price
 
     return total_price
+
