@@ -25,17 +25,23 @@ class StoreItem:
         def __str__(self):
             return f"{self.quantity} for {self.offer_price}"
 
-our_supermarket = [
-    StoreItem('A', 50, [3, 130]),
-    StoreItem('B', 30, [2, 45]),
-    StoreItem('C', 20),
-    StoreItem('D', 15)
-]
+supermarket_stock = {
+    'A': StoreItem('A', 50, [3, 130]),
+    'B': StoreItem('B', 30, [2, 45]),
+    'C': StoreItem('C', 20),
+    'D': StoreItem('D', 15)
+}
 
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
+
+    if not (isinstance(skus, str) and len(skus) > 0):
+        return -1
     
-    total_price
+    total_price = 0
     for sku in skus:
+        print(sku)
+        if sku in supermarket_stock:
+
 
