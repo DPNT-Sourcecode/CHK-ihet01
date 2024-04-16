@@ -1,8 +1,5 @@
 from . import *
 
-
-
-
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
@@ -34,5 +31,3 @@ def checkout(skus):
         total_price += total_item_price
 
     return total_price
-
-

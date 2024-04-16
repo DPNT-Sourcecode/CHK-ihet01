@@ -45,4 +45,3 @@ supermarket_stock = {
 
 # for item in supermarket_stock.values():
 #     print(item)
-
