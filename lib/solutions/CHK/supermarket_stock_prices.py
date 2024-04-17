@@ -7,17 +7,17 @@ class StoreItem:
         self.name = name
         self.price = price
         self.offers = None
-        if offers:
-            self.offers = []
-            for offer in offers:
-                self.offers.append(self.Offer(offer))
+        # if offers:
+        #     self.offers = []
+        #     for offer in offers:
+        #         self.offers.append(self.Offer(offer))
             
-            self.offers = sorted(self.offers, key=lambda x: x.quantity, reverse=True)
+        #     self.offers = sorted(self.offers, key=lambda x: x.quantity, reverse=True)
 
     def __str__(self):
         string = f"Item: {self.name} | Price: {self.price}"
-        if self.offers:
-            string += f" | Offers: {[str(offer) for offer in self.offers]}"
+        # if self.offers:
+        #     string += f" | Offers: {[str(offer) for offer in self.offers]}"
 
         return string
 
@@ -41,7 +41,11 @@ class Offer:
         def __init__(self, item, quantity, price=None, free_quantity=None, free_item=None):
             self.item = item
             self.quantity = quantity
-            self.price = details[1]
+            self.price = price
+            self.free_quantity = free_quantity
+            self.free_item = free_item
+
+            self.type = 1 if free_item else 2
 
         def __str__(self):
             return f"{self.quantity} for {self.price}"
@@ -56,11 +60,16 @@ supermarket_stock = {
 }
 
 offers = [
-    Offer('A', 3, 130),
-    Offer('A', 5, 200),
-    Offer('B', 2, 45),
-    Offer('E', 2, 1, 'B')
+    Offer('A', 3, price=130),
+    Offer('A', 5, price=200),
+    Offer('B', 2, price=45),
+    Offer('E', 2, free_quantity=1, free_item='B')
 ]
 
-# for item in supermarket_stock.values():
-#     print(item)
+offers_priority = sorted(offers, key=lambda x: (x.type, -x.quantity))
+
+for item in supermarket_stock.values():
+    print(item)
+
+for offer in offers:
+    print(offer)
