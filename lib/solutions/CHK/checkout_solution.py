@@ -35,5 +35,3 @@ def checkout(skus):
                     skus_counter[offer.item] -= offer.quantity
 
     return total_price
-
-
