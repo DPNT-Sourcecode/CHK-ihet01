@@ -7,12 +7,34 @@ class StoreItem:
         self.name = name
         self.price = price
         self.offers = None
+        # if offers:
+        #     self.offers = []
+        #     for offer in offers:
+        #         self.offers.append(self.Offer(offer))
+            
+        #     self.offers = sorted(self.offers, key=lambda x: x.quantity, reverse=True)
 
     def __str__(self):
         string = f"Item: {self.name} | Price: {self.price}"
-
+        # if self.offers:
+        #     string += f" | Offers: {[str(offer) for offer in self.offers]}"
 
         return string
+
+    # class Offer:
+    #     def __init__(self, details):
+    #         length_condition = (len(details) == 2) or (len(details) == 3 and isinstance(details[2], str))
+    #         if not (isinstance(details, list) and length_condition and isinstance(details[0], int) and isinstance(details[1], int)):
+    #             raise TypeError("Offer class accepts EITHER: \n  1. a list of two integers ([int, int]) where the first element represents \
+    #                             the quantity of the item and the second one the total offer price like [3, 150] \
+    #                             \nOR \n  2. a list of two integers and one string ([int, int, str]) where the first element represents \
+    #                             the quantity of the item, the second one is the quantity of the free item and the third one is the free item like [2, 1, 'B'].")
+
+    #         self.quantity = details[0]
+    #         self.price = details[1]
+
+    #     def __str__(self):
+    #         return f"{self.quantity} for {self.price}"
 
 
 class Offer:
@@ -62,9 +84,8 @@ offers = [
 # offers_priority = sorted(offers, key=lambda x: (x.type, -x.quantity))
 offers_priority = sorted(offers, key=lambda x: x.discounted_price, reverse=True)    # Based on the note that all offers are well-balanced (a bit unclear, but assuming)
 
+for item in supermarket_stock.values():
+    print(item)
 
-# for item in supermarket_stock.values():
-#     print(item)
-
-# for offer in offers_priority:
-#     print(offer)
+for offer in offers_priority:
+    print(offer)
