@@ -84,7 +84,8 @@ offers = [
     Offer('R', 3, free_quantity=1, free_item='Q'),
     Offer('U', 3, free_quantity=1, free_item='U'),
     Offer('V', 2, price=90),
-    Offer('V', 3, price=130)
+    Offer('V', 3, price=130),
+    Offer('STXYZ', 3, price=45)
 ]
 
 # offers_priority = sorted(offers, key=lambda x: (x.type, -x.quantity))
@@ -96,3 +97,4 @@ offers_priority = sorted(offers, key=lambda x: x.discounted_price, reverse=True)
 
 for offer in offers_priority:
     print(offer)
+
