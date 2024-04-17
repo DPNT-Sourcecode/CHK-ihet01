@@ -1,7 +1,7 @@
 class StoreItem:
     def __init__(self, name, price):
-        if not (isinstance(name, str) and len(name) == 1 and isinstance(price, int)):
-                raise TypeError("StoreItem class accepts a string of one letter for item name and an integer for item price.")
+        if not (isinstance(name, str) and len(name) > 0 and isinstance(price, int)):
+                raise TypeError("StoreItem class accepts a string of one or more letters for item name and an integer for item price.")
         
         self.name = name
         self.price = price
