@@ -24,6 +24,8 @@ class Offer:
                 self.discounted_price = self.calculate_discount()
             else:
                 self.type = 3
+                self.items_priority = self.prioritise_items()
+                print(self.items_priority)
 
 
         def calculate_discount(self):
@@ -33,6 +35,12 @@ class Offer:
                 discount = (supermarket_stock[self.item].price * self.quantity) - self.price
             
             return discount
+        
+        def prioritise_items(self):
+            # item_lst = list(self.item)
+            # print(item_lst)
+
+            return sorted(self.item, key=lambda x: supermarket_stock[x].price, reverse=True)    # Prioritise the more expensive items
 
         def __str__(self):
             if self.type == 1:
@@ -107,3 +115,4 @@ offers_priority = sorted(offers, key=lambda x: x.discounted_price, reverse=True)
 
 # for offer in offers_priority:
 #     print(offer)
+
