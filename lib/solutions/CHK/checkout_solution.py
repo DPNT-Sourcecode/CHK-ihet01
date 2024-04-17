@@ -14,9 +14,19 @@ def checkout(skus):
 
     for group_offer in group_offers:
         counter = 0
-        while counter < group_offer.quantity:
-            for group_item in group_offer.item:
-                if group_item
+        for group_item in group_offer.items_priority:
+            counter += skus_counter[group_item]
+
+        counter = counter - (counter % group_offer.quantity)
+        claimed_offers = counter // group_offer.quantity
+        total_price += claimed_offers * group_offer.price
+
+        for group_item in group_offer.items_priority:
+            while skus_counter[group_item] > 0:
+                skus_counter[group_item] -= 1
+                count -= 1
+                if counter == 0:
+                    break
 
     for sku, quantity in skus_counter.items():
         # print(f"{quantity} x {sku}")
@@ -44,3 +54,4 @@ def checkout(skus):
 
 
 # def apply_offers(total_price, skus_counter):
+
