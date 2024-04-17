@@ -46,12 +46,23 @@ class Offer:
             self.free_item = free_item
 
             self.type = 1 if free_item else 2
+            self.discounted_price = self.calculate_discount()
+
+
+        def calculate_discount(self):
+            if self.type == 1:
+                discount = supermarket_stock[self.free_item].price * self.free_quantity
+            else:
+                discount = (supermarket_stock[self.item].price * self.quantity) - self.price
+            
+            return discount
 
         def __str__(self):
-            if type == 1:
-                string = f"{self.quantity}{self.item} for {self.price}"
+            if self.type == 1:
+                string = f"{self.quantity}{self.item} get {self.free_quantity}{self.free_item} free"
             else:
-                string = f"{self.quantity}{self.item} get {self.free_quantity} {self.free_item} free"
+                string = f"{self.quantity}{self.item} for {self.price}"
+                
             return string
 
 
@@ -70,7 +81,8 @@ offers = [
     Offer('E', 2, free_quantity=1, free_item='B')
 ]
 
-offers_priority = sorted(offers, key=lambda x: (x.type, -x.quantity))
+# offers_priority = sorted(offers, key=lambda x: (x.type, -x.quantity))
+offers_priority = sorted(offers, key=lambda x: x.discounted_price, reverse=True)    # Based on the note that all offers are well-balanced (a bit unclear, but assuming)
 
 for item in supermarket_stock.values():
     print(item)
