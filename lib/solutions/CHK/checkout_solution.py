@@ -12,7 +12,11 @@ def checkout(skus):
     # counts the instances of each element and stores the counts in a dictionary
     skus_counter = Counter(skus)
 
-    
+    # for group_offer in group_offers:
+    #     counter = 0
+    #     while counter < group_offer.quantity:
+    #         for group_item in group_offer.item:
+    #             if group_item
 
     for sku, quantity in skus_counter.items():
         # print(f"{quantity} x {sku}")
