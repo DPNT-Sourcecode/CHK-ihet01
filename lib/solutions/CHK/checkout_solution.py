@@ -17,17 +17,24 @@ def checkout(skus):
         if not sku in supermarket_stock:
             return -1
         
-        total_item_price = 0
-        rem_quantity = quantity
-        if supermarket_stock[sku].offers:
-            # Starting from the offer with the higher quantity as it is already sorted by descending
-            for offer in supermarket_stock[sku].offers:
-                no_offer_claimed = rem_quantity // offer.quantity
-                rem_quantity = rem_quantity % offer.quantity
-                total_item_price += (no_offer_claimed * offer.price)
+        # total_item_price = 0
+        # rem_quantity = quantity
+        # if supermarket_stock[sku].offers:
+        #     # Starting from the offer with the higher quantity as it is already sorted by descending
+        #     for offer in supermarket_stock[sku].offers:
+        #         no_offer_claimed = rem_quantity // offer.quantity
+        #         rem_quantity = rem_quantity % offer.quantity
+        #         total_item_price += (no_offer_claimed * offer.price)
 
-        total_item_price += rem_quantity * supermarket_stock[sku].price
+        total_item_price += quantity * supermarket_stock[sku].price
 
         total_price += total_item_price
+
+
+    for offer in offers_priority:
+        if offer.item in skus_counter:
+            while skus_counter[offer.item] >= offer.quantity:
+                total_price -= offer.discounted_price
+                skus_counter[offer.item] -= offer.quantity
 
     return total_price
