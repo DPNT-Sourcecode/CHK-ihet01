@@ -18,7 +18,16 @@ class TestCheckout():
         assert checkout_solution.checkout("BBAADDABCBBAAC") == 390
         
     def test_checkout4(self):
-        assert checkout_solution.checkout("BBAADDABECBBAACE") == 470
+        assert checkout_solution.checkout("BBAADDABECBBAACE") == 440
 
     def test_checkout5(self):
-        assert checkout_solution.checkout("BBAADDABECABBAACEAAAE") == 690
+        assert checkout_solution.checkout("BBAADDABECABBAACEAAAE") == 660
+        
+    def test_checkout3(self):
+        assert checkout_solution.checkout("EEB") == 80
+        
+    def test_checkout4(self):
+        assert checkout_solution.checkout("EEEB") == 120
+
+    def test_checkout5(self):
+        assert checkout_solution.checkout("EEEEBB") == 160
