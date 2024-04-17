@@ -12,6 +12,8 @@ def checkout(skus):
     # counts the instances of each element and stores the counts in a dictionary
     skus_counter = Counter(skus)
 
+    
+
     for sku, quantity in skus_counter.items():
         # print(f"{quantity} x {sku}")
         if not sku in supermarket_stock:
@@ -35,3 +37,6 @@ def checkout(skus):
                     skus_counter[offer.item] -= offer.quantity
 
     return total_price
+
+
+# def apply_offers(total_price, skus_counter):

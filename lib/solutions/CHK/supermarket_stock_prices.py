@@ -19,7 +19,11 @@ class Offer:
             self.free_item = free_item
 
             self.type = 1 if free_item else 2
-            self.discounted_price = self.calculate_discount()
+            
+            if len(item) == 1:
+                self.discounted_price = self.calculate_discount()
+            else:
+                self.type = 3
 
 
         def calculate_discount(self):
@@ -33,8 +37,10 @@ class Offer:
         def __str__(self):
             if self.type == 1:
                 string = f"{self.quantity}{self.item} get {self.free_quantity}{self.free_item} free"
-            else:
+            elif self.type == 2:
                 string = f"{self.quantity}{self.item} for {self.price}"
+            else:
+                string = f"buy any {self.quantity} of {self.item} for {self.price}"
                 
             return string
 
@@ -101,5 +107,6 @@ offers_priority = sorted(offers, key=lambda x: x.discounted_price, reverse=True)
 
 for offer in offers_priority:
     print(offer)
+
 
 
