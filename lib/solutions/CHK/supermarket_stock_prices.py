@@ -107,6 +107,3 @@ offers_priority = sorted(offers, key=lambda x: x.discounted_price, reverse=True)
 
 for offer in offers_priority:
     print(offer)
-
-
-
