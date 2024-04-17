@@ -50,7 +50,7 @@ supermarket_stock = {
     'H': StoreItem('H', 10),
     'I': StoreItem('I', 35),
     'J': StoreItem('J', 60),
-    'K': StoreItem('K', 80),
+    'K': StoreItem('K', 70),
     'L': StoreItem('L', 90),
     'M': StoreItem('M', 15),
     'N': StoreItem('N', 40),
@@ -58,14 +58,14 @@ supermarket_stock = {
     'P': StoreItem('P', 50),
     'Q': StoreItem('Q', 30),
     'R': StoreItem('R', 50),
-    'S': StoreItem('S', 30),
+    'S': StoreItem('S', 20),
     'T': StoreItem('T', 20),
     'U': StoreItem('U', 40),
     'V': StoreItem('V', 50),
     'W': StoreItem('W', 20),
-    'X': StoreItem('X', 90),
-    'Y': StoreItem('Y', 10),
-    'Z': StoreItem('Z', 50)
+    'X': StoreItem('X', 17),
+    'Y': StoreItem('Y', 20),
+    'Z': StoreItem('Z', 21)
     
 }
 
@@ -77,7 +77,7 @@ offers = [
     Offer('F', 2, free_quantity=1, free_item='F'),
     Offer('H', 5, price=45),
     Offer('H', 10, price=80),
-    Offer('K', 2, price=150),
+    Offer('K', 2, price=120),
     Offer('N', 3, free_quantity=1, free_item='M'),
     Offer('P', 5, price=200),
     Offer('Q', 3, price=80),
