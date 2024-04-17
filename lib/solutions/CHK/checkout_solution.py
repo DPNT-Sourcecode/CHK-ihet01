@@ -44,4 +44,3 @@ def checkout(skus):
 
 
 # def apply_offers(total_price, skus_counter):
-
