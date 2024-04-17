@@ -26,9 +26,9 @@ def checkout(skus):
         #         rem_quantity = rem_quantity % offer.quantity
         #         total_item_price += (no_offer_claimed * offer.price)
 
-        total_item_price += quantity * supermarket_stock[sku].price
+        # total_item_price += quantity * supermarket_stock[sku].price
 
-        total_price += total_item_price
+        total_price += quantity * supermarket_stock[sku].price
 
 
     for offer in offers_priority:
