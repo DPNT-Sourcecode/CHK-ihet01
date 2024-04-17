@@ -1,17 +1,13 @@
 class StoreItem:
     def __init__(self, name, price):
-        if not (isinstance(name, str) and len(name) == 1 and isinstance(price, int) and (isinstance(offers, list) or offers is None)):
-                raise TypeError("StoreItem class accepts a string of one letter for item name, an integer for item price and \
-                                 optional offers list of type list of list with 2 integers [[int, int]].")
+        if not (isinstance(name, str) and len(name) == 1 and isinstance(price, int)):
+                raise TypeError("StoreItem class accepts a string of one letter for item name and an integer for item price.")
         
         self.name = name
         self.price = price
 
     def __str__(self):
-        string = f"Item: {self.name} | Price: {self.price}"
-
-
-        return string
+        return f"Item: {self.name} | Price: {self.price}"
 
 
 class Offer:
