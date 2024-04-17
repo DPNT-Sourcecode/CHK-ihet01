@@ -48,7 +48,11 @@ class Offer:
             self.type = 1 if free_item else 2
 
         def __str__(self):
-            return f"{self.quantity} for {self.price}"
+            if type == 1:
+                string = f"{self.quantity}{self.item} for {self.price}"
+            else:
+                string = f"{self.quantity}{self.item} get {self.free_quantity} {self.free_item} free"
+            return string
 
 
 supermarket_stock = {
