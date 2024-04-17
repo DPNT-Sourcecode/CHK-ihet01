@@ -21,21 +21,30 @@ class StoreItem:
 
         return string
 
-    class Offer:
-        def __init__(self, details):
-            length_condition = (len(details) == 2) or (len(details) == 3 and isinstance(details[2], str))
-            if not (isinstance(details, list) and length_condition and isinstance(details[0], int) and isinstance(details[1], int)):
-                raise TypeError("Offer class accepts EITHER: \n  1. a list of two integers ([int, int]) where the first element represents \
-                                the quantity of the item and the second one the total offer price like [3, 150] \
-                                \nOR \n  2. a list of two integers and one string ([int, int, str]) where the first element represents \
-                                the quantity of the item, the second one is the quantity of the free item and the third one is the free item like [2, 1, 'B'].")
+    # class Offer:
+    #     def __init__(self, details):
+    #         length_condition = (len(details) == 2) or (len(details) == 3 and isinstance(details[2], str))
+    #         if not (isinstance(details, list) and length_condition and isinstance(details[0], int) and isinstance(details[1], int)):
+    #             raise TypeError("Offer class accepts EITHER: \n  1. a list of two integers ([int, int]) where the first element represents \
+    #                             the quantity of the item and the second one the total offer price like [3, 150] \
+    #                             \nOR \n  2. a list of two integers and one string ([int, int, str]) where the first element represents \
+    #                             the quantity of the item, the second one is the quantity of the free item and the third one is the free item like [2, 1, 'B'].")
 
-            self.quantity = details[0]
+    #         self.quantity = details[0]
+    #         self.price = details[1]
+
+    #     def __str__(self):
+    #         return f"{self.quantity} for {self.price}"
+
+
+class Offer:
+        def __init__(self, item, quantity, price=None, free_quantity=None, free_item=None):
+            self.item = item
+            self.quantity = quantity
             self.price = details[1]
 
         def __str__(self):
             return f"{self.quantity} for {self.price}"
-
 
 
 supermarket_stock = {
@@ -45,6 +54,13 @@ supermarket_stock = {
     'D': StoreItem('D', 15),
     'E': StoreItem('E', 40, [[2, 1, 'B']]),
 }
+
+offers = [
+    Offer('A', 3, 130),
+    Offer('A', 5, 200),
+    Offer('B', 2, 45),
+    Offer('E', 2, 1, 'B')
+]
 
 # for item in supermarket_stock.values():
 #     print(item)
