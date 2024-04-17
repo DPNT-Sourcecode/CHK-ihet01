@@ -6,7 +6,7 @@ class TestCheckout():
         assert checkout_solution.checkout(32) == -1
 
     def test_checkout_fail2(self):
-        assert checkout_solution.checkout("ABACADX") == -1
+        assert checkout_solution.checkout("ABACADx") == -1
 
     def test_checkout(self):
         assert checkout_solution.checkout("") == 0

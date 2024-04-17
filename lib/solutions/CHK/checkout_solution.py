@@ -66,4 +66,3 @@ def apply_offers(total_price, skus_counter):
                     skus_counter[offer.item] -= offer.quantity
 
     return total_price
-
