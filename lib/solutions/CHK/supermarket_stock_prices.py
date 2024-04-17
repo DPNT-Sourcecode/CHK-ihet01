@@ -87,5 +87,5 @@ offers_priority = sorted(offers, key=lambda x: x.discounted_price, reverse=True)
 for item in supermarket_stock.values():
     print(item)
 
-for offer in offers:
+for offer in offers_priority:
     print(offer)
