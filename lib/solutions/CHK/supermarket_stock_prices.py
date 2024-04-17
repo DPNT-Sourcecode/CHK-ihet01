@@ -45,7 +45,28 @@ supermarket_stock = {
     'C': StoreItem('C', 20),
     'D': StoreItem('D', 15),
     'E': StoreItem('E', 40),
-    'F': StoreItem('F', 10)
+    'F': StoreItem('F', 10),
+    'G': StoreItem('G', 20),
+    'H': StoreItem('H', 10),
+    'I': StoreItem('I', 35),
+    'J': StoreItem('J', 60),
+    'K': StoreItem('K', 80),
+    'L': StoreItem('L', 90),
+    'M': StoreItem('M', 15),
+    'N': StoreItem('N', 40),
+    'O': StoreItem('O', 10),
+    'P': StoreItem('P', 50),
+    'Q': StoreItem('Q', 30),
+    'R': StoreItem('R', 50),
+    'S': StoreItem('S', 30),
+    'T': StoreItem('T', 20),
+    'U': StoreItem('U', 40),
+    'V': StoreItem('V', 50),
+    'W': StoreItem('W', 20),
+    'X': StoreItem('X', 90),
+    'Y': StoreItem('Y', 10),
+    'Z': StoreItem('Z', 50)
+    
 }
 
 offers = [
@@ -53,7 +74,17 @@ offers = [
     Offer('A', 5, price=200),
     Offer('B', 2, price=45),
     Offer('E', 2, free_quantity=1, free_item='B'),
-    Offer('F', 2, free_quantity=1, free_item='F')
+    Offer('F', 2, free_quantity=1, free_item='F'),
+    Offer('H', 5, price=45),
+    Offer('H', 10, price=80),
+    Offer('K', 2, price=150),
+    Offer('N', 3, free_quantity=1, free_item='M'),
+    Offer('P', 5, price=200),
+    Offer('Q', 3, price=80),
+    Offer('R', 3, free_quantity=1, free_item='Q'),
+    Offer('U', 3, free_quantity=1, free_item='U'),
+    Offer('V', 2, price=90),
+    Offer('V', 3, price=130)
 ]
 
 # offers_priority = sorted(offers, key=lambda x: (x.type, -x.quantity))
@@ -63,5 +94,5 @@ offers_priority = sorted(offers, key=lambda x: x.discounted_price, reverse=True)
 # for item in supermarket_stock.values():
 #     print(item)
 
-# for offer in offers_priority:
-#     print(offer)
+for offer in offers_priority:
+    print(offer)
