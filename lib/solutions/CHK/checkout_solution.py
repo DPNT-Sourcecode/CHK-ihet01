@@ -12,21 +12,7 @@ def checkout(skus):
     # counts the instances of each element and stores the counts in a dictionary
     skus_counter = Counter(skus)
 
-    for group_offer in group_offers:
-        counter = 0
-        for group_item in group_offer.items_priority:
-            counter += skus_counter[group_item]
-
-        counter = counter - (counter % group_offer.quantity)
-        claimed_offers = counter // group_offer.quantity
-        total_price += claimed_offers * group_offer.price
-
-        for group_item in group_offer.items_priority:
-            while skus_counter[group_item] > 0:
-                skus_counter[group_item] -= 1
-                count -= 1
-                if counter == 0:
-                    break
+    
 
     for sku, quantity in skus_counter.items():
         # print(f"{quantity} x {sku}")
@@ -53,5 +39,32 @@ def checkout(skus):
     return total_price
 
 
-# def apply_offers(total_price, skus_counter):
+def apply_group_offers(total_price, skus_counter):
+    for group_offer in group_offers:
+        counter = 0
+        for group_item in group_offer.items_priority:
+            counter += skus_counter[group_item]
+
+        counter = counter - (counter % group_offer.quantity)
+        claimed_offers = counter // group_offer.quantity
+        total_price += claimed_offers * group_offer.price
+
+        for group_item in group_offer.items_priority:
+            if skus_counter[group_item] <= counter:
+                counter -= skus_counter[group_item]
+                skus_counter[group_item] = 0
+            else:
+                skus_counter[group_item] -= counter
+                counter = 0
+
+            if counter == 0:
+                    break
+            
+    return total_price
+
+def apply_offers(total_price, skus_counter):
+
+
+def calculate_total_price(total_price, skus_counter):
+    
 
