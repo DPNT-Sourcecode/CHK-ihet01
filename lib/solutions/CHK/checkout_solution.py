@@ -23,17 +23,17 @@ def checkout(skus):
     for offer in offers_priority:
         if offer.item in skus_counter:
             if offer.type == 1 and (offer.free_item in skus_counter) and skus_counter[offer.free_item] != 0:
-                diff_item_condition = (offer.item != offer.free_item) and (skus_counter[offer.item] == offer.quantity)
-                while (skus_counter[offer.item] > offer.quantity) or diff_item_condition:
+                while skus_counter[offer.item] >= offer.quantity:
+                    skus_counter[offer.item] -= offer.quantity
                     free_quantity = offer.free_quantity if skus_counter[offer.free_item] >= offer.free_quantity else skus_counter[offer.free_item]
                     total_price -= free_quantity * supermarket_stock[offer.free_item].price
                     skus_counter[offer.free_item] -= free_quantity
-                    skus_counter[offer.item] -= offer.quantity
-
+                    
             elif offer.type == 2:
                 while skus_counter[offer.item] >= offer.quantity:
                     total_price -= offer.discounted_price
                     skus_counter[offer.item] -= offer.quantity
 
     return total_price
+
 
